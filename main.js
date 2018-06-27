@@ -3,6 +3,7 @@ $(function() {
     setMainMargin();
     animate(".budget-item", 0.5);
     animate("header", 0.2);
+    animate(".footer-holder")
 });
 
 function setMainMargin () {
@@ -11,6 +12,11 @@ function setMainMargin () {
     main.css({
         marginTop: headerHeight,
     });
+
+    var expensesHeight = $(".footer-holder").height();
+    main.css({
+        marginBottom: expensesHeight + 40,
+    })
 }
 
 function animate (element, speed) {
