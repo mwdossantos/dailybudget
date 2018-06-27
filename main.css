@@ -66,10 +66,6 @@ header {
     filter: brightness(50%);
 }
 
-.shrink:active {
-    transform: scale(0.9);
-}
-
 .main {
     
 }
