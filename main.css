@@ -58,16 +58,8 @@ header {
     transition: all 0.2s ease;
 }
 
-.increase-opacity:hover {
-    opacity: 0.75;
-}
-
 .decrease-opacity:active {
     filter: brightness(50%);
-}
-
-.main {
-    
 }
 
 .budget-item {
