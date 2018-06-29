@@ -2,17 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Daily Budget</title>
+    <title>Add Item</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="add.css" />
 </head>
 <body>
     <header>
         <div class="holder">
             <div class="top-header-holder">
-                <img src="img/settings.png" class="touch-icon decrease-opacity">
-                <p style="font-size: 17px; font-weight: 600">Daily Budget</p>
-                <img src="img/add.png" id="add-item-button" class="touch-icon decrease-opacity">
+                <img src="img/back.png" id="add-item-back-button" class="touch-icon decrease-opacity" style="object-fit: scale-down;">
+                <p style="font-size: 17px; font-weight: 600">Add Purchase</p>
+                <p class="decrease-opacity transition" style="font-size: 17px; font-weight: 600; color: #E84B4B;">Add</p>
             </div>   
         </div>
     </header>
@@ -32,16 +33,14 @@
                     <img src="img/trash.png" class="delete-button touch-icon decrease-opacity">
                 </div>
             </div>
+            <p class="preview-label transition" style="font-size: 13px; font-weight: normal;">Preview</p>
+            <div class="input-holder transition">
+                <input class="text-input" type="text" name="item-name-field" placeholder="Enter Name">
+                <input class="text-input" type="number" name="item-name-field" placeholder="Enter Price">
+                <input class="text-input" type="number" min="1" max="5" name="item-name-field" placeholder="Enter Amount">
+            </div>
         </div>
     </main>
-    <div class="footer-holder">
-            <div class="current-expenses">
-                <p style="font-size: 17px; font-weight: 500;">Expenses</p>
-                <p class="budget-spent" style="font-size: 17px; font-weight: 500; opacity: 0.4;"><span class="currency-symbol">$</span>18,97</p>
-            </div>
-            <p style="text-align: center; font-size: 12px; opacity: 0.4; margin: 10px auto">$<span id="budget-left">106,03</span> left to spend today.</p>
-            <div class="text-button decrease-opacity">Change Daily Limit</div>
-    </div>
     <script src="https://cdn.apple-cloudkit.com/ck/2/cloudkit.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
     <script src="main.js"></script>
