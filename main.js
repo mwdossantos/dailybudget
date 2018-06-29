@@ -1,6 +1,7 @@
 $(function() {
     // Handler for .ready() called.
     setMainMargin();
+
     animate(".budget-item", 0.5, 1);
     animate(".preview-label", 0.5, 0.4);
     animate("header", 0.2, 1);
@@ -9,7 +10,26 @@ $(function() {
 
     navigator("#add-item-button", "add.html");
     navigator("#add-item-back-button", "index.html");
+
+    getElementsAndPage();
+
 });
+
+function getElementsAndPage() {
+
+    const nameInput = document.getElementById("name-input")
+    const nameTag = document.getElementById("item-name");
+    const currentHTML = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+
+    switch (currentHTML) {
+        case "add.html":
+            checkInputs(nameTag, nameInput, "Donut");
+            break;
+        default:
+            break;
+    }
+
+}
 
 function setMainMargin () {
     var headerHeight = $("header").height();
@@ -41,4 +61,14 @@ function navigator(element, page) {
     $(element).click(function () {
         window.location.href = page;
     });
+}
+
+function checkInputs (elementToUpdate, inputElement, defaultValue) {
+    setInterval(function () {
+        if (inputElement.value.length > 0) {
+            elementToUpdate.innerHTML = inputElement.value;
+        } else {
+            elementToUpdate.innerHTML = defaultValue;
+        }
+    },20);
 }
