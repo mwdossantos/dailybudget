@@ -6,10 +6,10 @@
 .input-holder {
     transform: translateY(-50px);
     opacity: 0;
-    margin-top: 20px;
 }
 
 .text-input {
+    margin-top: 20px;
     width: 100%;
     font-size: 17px;
     font-weight: normal;
@@ -17,4 +17,8 @@
     border: none;
     outline: none;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.input {
+    -webkit-appearance: none;
 }
