@@ -19,9 +19,9 @@ var nameInput, priceInput, amountInput, nameTag, priceTag, amountTag, currentHTM
 
 function GetElementsAndPage() {
 
-    nameInput = document.getElementById("name-input")
-    priceInput = document.getElementById("price-input")
-    amountInput = document.getElementById("amount-input")
+    nameInput = document.getElementById("name-input");
+    priceInput = document.getElementById("price-input");
+    amountInput = document.getElementById("amount-input");
     nameTag = document.getElementById("item-name");
     priceTag = document.getElementById("item-price");
     amountTag = document.getElementById("item-amount");
@@ -29,9 +29,9 @@ function GetElementsAndPage() {
 
     switch (currentHTML) {
         case "add.html":
-            CheckInputs(nameTag, nameInput, "Donut", "", "");
-            CheckInputs(priceTag, priceInput, "$1,99", "$", "front");
-            CheckInputs(amountTag, amountInput, "2x", "x", "behind");
+            CheckInputs(nameTag, nameInput, "Name", "", "");
+            CheckInputs(priceTag, priceInput, "Price", "$", "front");
+            CheckInputs(amountTag, amountInput, "Amount", "x", "behind");
             break;
         default:
             break;
@@ -71,10 +71,10 @@ function Navigator (element, page) {
     });
 }
 
-function CheckInputs (elementToUpdate, inputElement, defaultValue, extraCharacter, posistion) {
+function CheckInputs (elementToUpdate, inputElement, defaultValue, extraCharacter, position) {
     setInterval(function () {
         if (inputElement.value.length > 0) {
-            if (posistion == "behind") {
+            if (position == "behind") {
                 var input = inputElement.value.toString() + extraCharacter;
                 elementToUpdate.innerHTML = input;
             } else {
@@ -84,18 +84,19 @@ function CheckInputs (elementToUpdate, inputElement, defaultValue, extraCharacte
         } else {
             elementToUpdate.innerHTML = defaultValue;
         }
+
         CalcPrice();
-    },20);
+
+    }, 20);
 }
 
 function CalcPrice () {
-    var price = 0;
-    if (amountInput.value > 1) {
-        price = priceInput.value;;
-    } else {
-        price = priceInput.value * amountInput.value;
-    }
+    var priceValue = $("#price-input").val();
+    var amountValue = $("#amount-input").val();
+    
+    var totalAmount = priceValue * amountValue;
+    
+    parseFloat(Math.round(totalAmount * 100) / 100).toFixed(2);
 
-    priceTag.innerHTML = "$" + price.toString();
-
+    $("#item-total").html(totalAmount);
 }
