@@ -1,29 +1,37 @@
 $(function() {
     // Handler for .ready() called.
-    setMainMargin();
+    SetMainMargin();
 
-    animate(".budget-item", 0.5, 1);
-    animate(".preview-label", 0.5, 0.4);
-    animate("header", 0.2, 1);
-    animate(".footer-holder", 0.2, 1);
-    animate(".input-holder", 0.8, 1);
+    Animate(".budget-item", 0.5, 1);
+    Animate(".preview-label", 0.5, 0.4);
+    Animate("header", 0.2, 1);
+    Animate(".footer-holder", 0.2, 1);
+    Animate(".input-holder", 0.8, 1);
 
-    navigator("#add-item-button", "add.html");
-    navigator("#add-item-back-button", "index.html");
+    Navigator("#add-item-button", "add.html");
+    Navigator("#add-item-back-button", "index.html");
 
-    getElementsAndPage();
+    GetElementsAndPage();
 
 });
 
-function getElementsAndPage() {
+var nameInput, priceInput, amountInput, nameTag, priceTag, amountTag, currentHTML;
 
-    const nameInput = document.getElementById("name-input")
-    const nameTag = document.getElementById("item-name");
-    const currentHTML = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+function GetElementsAndPage() {
+
+    nameInput = document.getElementById("name-input")
+    priceInput = document.getElementById("price-input")
+    amountInput = document.getElementById("amount-input")
+    nameTag = document.getElementById("item-name");
+    priceTag = document.getElementById("item-price");
+    amountTag = document.getElementById("item-amount");
+    currentHTML = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 
     switch (currentHTML) {
         case "add.html":
-            checkInputs(nameTag, nameInput, "Donut");
+            CheckInputs(nameTag, nameInput, "Donut", "", "");
+            CheckInputs(priceTag, priceInput, "$1,99", "$", "front");
+            CheckInputs(amountTag, amountInput, "2x", "x", "behind");
             break;
         default:
             break;
@@ -31,7 +39,7 @@ function getElementsAndPage() {
 
 }
 
-function setMainMargin () {
+function SetMainMargin () {
     var headerHeight = $("header").height();
     var main = $("main");
     main.css({
@@ -44,7 +52,7 @@ function setMainMargin () {
     })
 }
 
-function animate (element, speed, opacity) {
+function Animate (element, speed, opacity) {
     $(element).css({
         transition: "all " + speed + "s ease",
     });
@@ -57,18 +65,37 @@ function animate (element, speed, opacity) {
     
 }
 
-function navigator(element, page) {
+function Navigator (element, page) {
     $(element).click(function () {
         window.location.href = page;
     });
 }
 
-function checkInputs (elementToUpdate, inputElement, defaultValue) {
+function CheckInputs (elementToUpdate, inputElement, defaultValue, extraCharacter, posistion) {
     setInterval(function () {
         if (inputElement.value.length > 0) {
-            elementToUpdate.innerHTML = inputElement.value;
+            if (posistion == "behind") {
+                var input = inputElement.value.toString() + extraCharacter;
+                elementToUpdate.innerHTML = input;
+            } else {
+                var input = extraCharacter + inputElement.value.toString();
+                elementToUpdate.innerHTML = input;
+            }
         } else {
             elementToUpdate.innerHTML = defaultValue;
         }
+        CalcPrice();
     },20);
+}
+
+function CalcPrice () {
+    var price = 0;
+    if (amountInput.value > 1) {
+        price = priceInput.value;;
+    } else {
+        price = priceInput.value * amountInput.value;
+    }
+
+    priceTag.innerHTML = "$" + price.toString();
+
 }
