@@ -1,0 +1,9 @@
+.limit-input {
+    font-size: 36px;
+    width: 100%;
+    text-align: center;
+    outline: none;
+    font-weight: bold;
+    border: none;
+    transform: translateY(-50px);
+}

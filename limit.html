@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Daily Budget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="limit.css" />
+</head>
+<body>
+    <header>
+        <div class="holder">
+            <div class="top-header-holder">
+                <img src="img/back.png" id="limit-back-button" style="object-fit: scale-down;" class="touch-icon decrease-opacity">
+                <p style="font-size: 17px; font-weight: 600">Change Daily Limit</p>
+                <p class="decrease-opacity transition" id="done-limit-button" style="font-size: 17px; font-weight: 600; color: #E84B4B;">Done</p>
+            </div>   
+        </div>
+    </header>
+    <main>
+        <div class="holder">
+            <input type="text" class="limit-input transition opague ibacor_fi" data-prefix="$" placeholder="Enter amount">
+        </div>
+    </main>
+    <script src="https://cdn.apple-cloudkit.com/ck/2/cloudkit.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="jquery.prefix-input.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

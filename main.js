@@ -7,12 +7,16 @@ $(function() {
     Animate("header", 0.2, 1);
     Animate(".footer-holder", 0.2, 1);
     Animate(".input-holder", 0.8, 1);
+    Animate(".limit-input", 0.5, 1);
 
     Navigator("#add-item-button", "add.html");
     Navigator("#add-item-back-button", "index.html");
+    Navigator("#change-limit", "limit.html");
+    Navigator("#limit-back-button", "index.html");
+    Navigator("#done-limit-button","index.html");
 
     GetElementsAndPage();
-
+    
 });
 
 var nameInput, priceInput, amountInput, nameTag, priceTag, amountTag, currentHTML;

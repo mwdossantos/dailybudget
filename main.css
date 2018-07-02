@@ -102,5 +102,9 @@ header {
     transition: all 0.2s ease;
 }
 
+.opague {
+    opacity: 0;
+}
+
 
 
