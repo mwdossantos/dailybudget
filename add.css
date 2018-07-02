@@ -6,6 +6,7 @@
 .input-holder {
     transform: translateY(-50px);
     opacity: 0;
+    margin-top: -20px;
 }
 
 .text-input {
@@ -13,10 +14,10 @@
     width: 100%;
     font-size: 17px;
     font-weight: normal;
-    padding: 15px 0px;
+    padding: 15px;
     border: none;
     outline: none;
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 .input {

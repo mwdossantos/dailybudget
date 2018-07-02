@@ -6,4 +6,7 @@
     font-weight: bold;
     border: none;
     transform: translateY(-50px);
+    padding: 15px;
+    box-sizing: border-box;
+    margin-top: 20px;
 }
